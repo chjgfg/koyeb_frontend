@@ -32,7 +32,7 @@ export default function TerminalBox() {
         termInstance.current = term;
 
         // 连接 WebSocket
-        const wsUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8080";
+        const wsUrl = "ws://comparative-amargo-cocotest-82b13864.koyeb.app/";
         const ws = new WebSocket(wsUrl);
 
         ws.onopen = () => {
