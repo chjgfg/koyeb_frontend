@@ -32,8 +32,16 @@ export default function TerminalBox() {
         termInstance.current = term;
 
         // 连接 WebSocket
-        const wsUrl = "ws://comparative-amargo-cocotest-82b13864.koyeb.app/";
-        const ws = new WebSocket(wsUrl);
+        const ws = new WebSocket("wss://comparative-amargo-cocotest-82b13864.koyeb.app/");
+        try {
+            ws.onerror = (error) => {
+                term.writeln("\r\n\x1b[31mConnection Error: Check console for details.\x1b[0m");
+                console.error("WS Error:", error);
+            };
+            // 原有的 onopen, onmessage 等逻辑...
+        } catch (e) {
+            console.error("Failed to create WebSocket:", e);
+        }
 
         ws.onopen = () => {
             term.writeln("\x1b[1;32m●\x1b[0m Connected to Rust Backend (ws://localhost:8080)");
