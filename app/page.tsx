@@ -16,7 +16,7 @@ export default function WebTerminalPage() {
     <main className="h-screen w-screen overflow-hidden bg-black">
       <div className="flex flex-col h-full">
         <header className="bg-[#16161e] border-b border-[#3b4261] p-2 px-4 text-xs text-[#7aa2f7] flex justify-between">
-          <span>toyDB Web Console</span>
+          <span>Web Console</span>
           <span className="opacity-50">Localhost:8080</span>
         </header>
         <div className="flex-1 overflow-hidden">
